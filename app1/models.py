@@ -14,5 +14,9 @@ class Producto(models.Model):
     nuevo = models.BooleanField()
     marca = models.ForeignKey(Marca, on_delete=models.PROTECT)
     fecha_fabricacion = models.DateTimeField()
-    def __str__(self):
+    imagen = models.ImageField(upload_to="productos",null=True) 
+    '''Cuando agregamos un nuevo campo al modelo existente, 
+    debe ser null o al menos debe tener un valor por defecto,
+    porque ya hay datos almacenados en el modelo'''
+    def __str__(self):                                          
         return self.nombre

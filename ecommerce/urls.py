@@ -16,8 +16,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.urls import include # Include() es la function que conecta las urls de cada Apps.
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('app1.urls')),
 ]
+
+# Solo se usa en desarrollo o debug, cuando va a production montar la imagnes en un NGINETS.
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
