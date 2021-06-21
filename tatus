@@ -1,0 +1,41 @@
+[33mcommit 7232051071cf8ba38503fef406f9ef4d2395b6b7[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Author: Felix Figueroa <felixmanuelfigueroa@gmail.com>
+Date:   Mon Jun 21 01:56:51 2021 -0300
+
+    install django-admin-interface 0.16.3
+
+[33mcommit 8a0caa4744f08938d55ea80869b187fa2899a2f2[m
+Author: Felix Figueroa <felixmanuelfigueroa@gmail.com>
+Date:   Mon Jun 21 01:40:23 2021 -0300
+
+    Setup de carga de Imagen en el Modelo Producto destino folder Media
+
+[33mcommit a41b96aeaf3a2081165474e89dc8a128d5729d50[m
+Author: Felix Figueroa <felixmanuelfigueroa@gmail.com>
+Date:   Mon Jun 21 00:49:19 2021 -0300
+
+    Configuracion de Models Marca y Producto
+
+[33mcommit 294bf399a99d4a24e683746df7d1e5faa48e1baf[m
+Author: Felix Figueroa <felixmanuelfigueroa@gmail.com>
+Date:   Sat Jun 19 23:18:44 2021 -0300
+
+    Setup Templates v1.0
+
+[33mcommit 070dd57de4293d3572054634330f1648a5688d64[m
+Author: Felix Figueroa <felixmanuelfigueroa@gmail.com>
+Date:   Sat Jun 19 23:17:02 2021 -0300
+
+    Setup Templates v1.0
+
+[33mcommit d599ac910036b11b078b1fcc45fb4710e414b782[m
+Author: Felix Figueroa <felixmanuelfigueroa@gmail.com>
+Date:   Sat Jun 19 11:19:01 2021 -0300
+
+    Inicio de App1
+
+[33mcommit 5b6f1cd8640531cec135d478c746bd48d0c612a0[m
+Author: Felix Figueroa <felixmanuelfigueroa@gmail.com>
+Date:   Sat Jun 19 11:13:35 2021 -0300
+
+    Inicio del Proyecto v1.0
