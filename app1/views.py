@@ -1,9 +1,14 @@
 from django.shortcuts import render
+from .models import Producto
 
 # Create your views here.
 
 def home(request):
-    return render(request, 'app/home.html') # luego de templates, colocar path que deseamos ver. 
+    productos = Producto.objects.all()
+    data = {
+        'productos': productos
+    }
+    return render(request, 'app/home.html', data) # luego de templates, colocar path que deseamos ver. 
 
 def products(request):
     return render(request, 'app/products.html')

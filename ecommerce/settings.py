@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'app1.apps.App1Config',
     'colorfield',
+    'django.contrib.humanize',
 ]
 
 X_FRAME_OPTIONS='SAMEORIGIN' # only if django version >= 3.0

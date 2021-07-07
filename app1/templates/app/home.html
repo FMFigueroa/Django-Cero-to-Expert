@@ -59,61 +59,28 @@ colocar el path que deseamos ver a partir de templates.  -->
 </div>
 <br>
 <br>
-<h2>Productos</h2> <!-- No son responsive -->
+{% load humanize %}
+<h2>Productos Destacados</h2> <!-- No son responsive -->
 <div class="productos">
-  <div class="producto">
-      <div class="contenedor_producto">
-          <img src="{% static 'app/img/lenovo_tablet.jpeg' %}" alt="imagen producto">
-          <div class="detalle">
-              <h5>Lenovo</h5>
-              <h2>Tablet</h2>
-              <h3>$120.000</h3>
+    {% for p in productos %}
+      <div class="producto">
+        {% if p.disponible == True %}
+        <div class="card" style="width: 20rem;">
+          {% if p.imagen %}
+          <img src="{{ p.imagen.url}}" class="card-img-top" alt="imagen producto">
+          {% endif %}
+          <div class="card-body">
+            <h5>{{ p.category | capfirst }}</h5>
+            <h4 class="card-title">{{ p.nombre | title}}</h4>
+            <p class="card-text">{{ p.description }}</p>
+            <h3>$ {{ p.precio | intcomma}}</h3>
+            <a href="#" class="btn btn-primary">Ver</a>
+            <button class="btn atc btn-warning">Comprar</button>
+            <h2></h2>
           </div>
+        </div>
+        {% endif %}
       </div>
-  </div>
-
-  <div class="producto">
-      <div class="contenedor_producto">
-          <img src="{% static 'app/img/macbook.jpeg' %}" alt="imagen producto">
-          <div class="detalle">
-              <h5>apple</h5>
-              <h2>Macbook</h2>
-              <h3>$1.500.000</h3>
-          </div>
-      </div>
-  </div>
-
-  <div class="producto">
-      <div class="contenedor_producto">
-          <img src="{% static 'app/img/surface.jpeg' %}" alt="imagen producto">
-          <div class="detalle">
-              <h5>microsoft</h5>
-              <h2>Surface</h2>
-              <h3>$2.000.000</h3>
-          </div>
-      </div>
-  </div>
-
-  <div class="producto">
-      <div class="contenedor_producto">
-          <img src="{% static 'app/img/s9.jpeg' %}" alt="imagen producto">
-          <div class="detalle">
-              <h5>samsung</h5>
-              <h2>Galaxy s9</h2>
-              <h3>$400.000</h3>
-          </div>
-      </div>
-  </div>
-
-  <div class="producto">
-      <div class="contenedor_producto">
-          <img src="{% static 'app/img/redmi.jpeg' %}" alt="imagen producto">
-          <div class="detalle">
-              <h5>Xiaomi</h5>
-              <h2>Redmi note 8</h2>
-              <h3>$200.000</h3>
-          </div>
-      </div>
-  </div>
+    {% endfor %}
 </div>
 {% endblock %}
