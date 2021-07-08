@@ -5,13 +5,30 @@ colocar el path que deseamos ver a partir de templates.  -->
 {%  load static%}
 
 {% block contenido %}
-<h1>formulario</h1>
-<form action="" id="formulario_contacto" method="post">
-    {% csrf_token %}
-    {{ form }} <!-- Variable creada en views con python, django la impre en html directamente -->
-    <br>
-    <input class="btn btn-primary" type="submit" value="Submit">
-</form>
-{{mensaje}}
+{% load crispy_forms_tags %}
+<div class="row">
+    <div class="col"></div>
+    <div class="col-12 col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h4>Contáctanos</h4>
+                <form method="post">
+                    {% csrf_token %}
+                    {{ form | crispy}} <!-- Variable creada en views con python, django la impre en html directamente -->
+                    <hr>
+                    <br>
+                    <div class="d-flex justify-content-end">
+                        <button type="reset" class="btn btn-secondary">Cancel</button>
+                        &nbsp;
+                        <button class="btn btn-primary" type="submit" value="Submit">Enviar</button>
+                    </div>
+                </form>
+                {{mensaje}}
+            </div>
+        </div>
+    </div>
+    <div class="col"></div>
+</div>
+
 
 {% endblock %}

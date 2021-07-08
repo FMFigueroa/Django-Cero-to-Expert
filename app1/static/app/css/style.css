@@ -6,10 +6,6 @@ body {
 label.error {
     color: darkred;
 }
-#formulario_contacto {
-    width: 300px;
-    margin-top:50px;
-}
 
 /* footer */
 .footer-container {
