@@ -12,6 +12,7 @@ colocar el path que deseamos ver a partir de templates.  -->
         <div class="card">
             <div class="card-body">
                 <h4>Contáctanos</h4>
+                <hr>
                 <form method="post">
                     {% csrf_token %}
                     {{ form | crispy}} <!-- Variable creada en views con python, django la impre en html directamente -->

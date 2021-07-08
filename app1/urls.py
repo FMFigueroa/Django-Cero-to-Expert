@@ -1,5 +1,6 @@
 from django.urls import path
-from . import views
+from . import views 
+from .views import agregar_producto
 
 
 urlpatterns = [
@@ -9,4 +10,5 @@ urlpatterns = [
     path('courses/', views.courses, name="courses"),
     path('blog/', views.blog, name="blog"),
     path('contacts/', views.contacts, name="contacts"),
+    path ('agregar-producto', agregar_producto, name= "agragar_producto"),
 ]

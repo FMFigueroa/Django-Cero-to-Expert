@@ -58,84 +58,90 @@
             </form>
             <div class="navbar-nav me-2 mb-2 mb-lg-0">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item mx-3">
-                    <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                    Login
-                    </button>
-                    <!-- Modal -->
-                    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="staticBackdropLabel">Login</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body"> <!-- Body Modal -->
-                            <form class="row g-3">
-                            <div class="col-md-12">
-                                <label for="inputEmail4" class="form-label">Email</label>
-                                <input type="email" class="form-control" id="inputEmail4">
+                {% if user.is_authenticated %}
+                    <li class="nav-item mx-3">
+                        <a class="btn btn-link" href="{% url 'logout' %}" role="button">Logout</a>
+                    </li>
+                {% else %}
+                    <li class="nav-item mx-3">
+                        <!-- Modal para Login -->
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                        Login
+                        </button>
+                         <!-- Modal -->
+                        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="staticBackdropLabel">Login</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body"> <!-- Body Modal -->
+                                        <form class="row g-3">
+                                        <div class="col-md-12">
+                                            <label for="inputEmail4" class="form-label">Email</label>
+                                            <input type="email" class="form-control" id="inputEmail4">
+                                        </div>
+                                        <div class="col-md-12">
+                                            <label for="inputPassword4" class="form-label">Password</label>
+                                            <input type="password" class="form-control" id="inputPassword4">
+                                        </div>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary">Sign in</button>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="col-md-12">
-                                <label for="inputPassword4" class="form-label">Password</label>
-                                <input type="password" class="form-control" id="inputPassword4">
+                        </div>
+                        <!-- Modal para register -->
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Register
+                        </button>
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div id="modal_2" class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">User Register</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body"> <!-- Body Modal -->
+                                    <form class="row g-3">
+                                    <div class="col-md-6">
+                                        <label for="inputFname" class="form-label">First Name</label>
+                                        <input type="text" class="form-control" id="inputFname">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="inputLname" class="form-label">Last Name</label>
+                                        <input type="text" class="form-control" id="inputLname">
+                                    </div>
+                                    <div class="col-md-12">
+                                        <label for="inputEmail4" class="form-label">Email</label>
+                                        <input type="email" class="form-control" id="inputEmail4">
+                                    </div>
+                                    <div class="col-md-12">
+                                        <label for="inputPassword4" class="form-label">Password</label>
+                                        <input type="password" class="form-control" id="inputPassword4">
+                                    </div>
+                                    <div class="col-md-12">
+                                        <label for="inputPassword8" class="form-label">Password Confirm</label>
+                                        <input type="password" class="form-control" id="inputPassword8">
+                                    </div>
+                                    </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary">Register</button>
+                                    </div>
+                                </div>
                             </div>
-                            </form>
                         </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Sign in</button>
-                        </div>
-                        </div>
-                    </div>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    Register
-                    </button>
-                    <!-- Modal -->
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div id="modal_2" class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">User Register</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body"> <!-- Body Modal -->
-                            <form class="row g-3">
-                            <div class="col-md-6">
-                                <label for="inputFname" class="form-label">First Name</label>
-                                <input type="text" class="form-control" id="inputFname">
-                            </div>
-                            <div class="col-md-6">
-                                <label for="inputLname" class="form-label">Last Name</label>
-                                <input type="text" class="form-control" id="inputLname">
-                            </div>
-                            <div class="col-md-12">
-                                <label for="inputEmail4" class="form-label">Email</label>
-                                <input type="email" class="form-control" id="inputEmail4">
-                            </div>
-                            <div class="col-md-12">
-                                <label for="inputPassword4" class="form-label">Password</label>
-                                <input type="password" class="form-control" id="inputPassword4">
-                            </div>
-                            <div class="col-md-12">
-                                <label for="inputPassword8" class="form-label">Password Confirm</label>
-                                <input type="password" class="form-control" id="inputPassword8">
-                            </div>
-                            </form>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Register</button>
-                        </div>
-                        </div>
-                    </div>
-                    </div>
-                </li>
+                    </li>
+                {% endif %}
                 </ul>
             </div>
             </div>

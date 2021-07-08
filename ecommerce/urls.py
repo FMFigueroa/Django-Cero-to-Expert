@@ -22,6 +22,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('app1.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
 ]
 
 # Solo se usa en desarrollo o debug, cuando va a production montar la imagnes en un NGINETS.
