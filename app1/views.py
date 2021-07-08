@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Producto
+from.forms import ContactoForm
 
 # Create your views here.
 
@@ -23,4 +24,15 @@ def blog(request):
     return render(request, 'app/blog.html')
 
 def contacts(request):
-    return render(request, 'app/contacts.html')
+    data = {
+        'form': ContactoForm() # Variable que se imprime en la platilla html.
+    }
+    if request.method == 'POST':
+        formulario = ContactoForm(data=request.POST)
+        if formulario.is_valid():
+            formulario.save()
+            data["mensaje"] = "Contacto Enviado"
+        else:
+            data["form"] = formulario
+
+    return render(request, 'app/contacts.html', data)

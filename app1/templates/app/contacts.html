@@ -5,7 +5,13 @@ colocar el path que deseamos ver a partir de templates.  -->
 {%  load static%}
 
 {% block contenido %}
-<div class="main-container">
-    <h1>Esta es la página de contacto</h1>
-</div>
+<h1>formulario</h1>
+<form action="" id="formulario_contacto" method="post">
+    {% csrf_token %}
+    {{ form }} <!-- Variable creada en views con python, django la impre en html directamente -->
+    <br>
+    <input class="btn btn-primary" type="submit" value="Submit">
+</form>
+{{mensaje}}
+
 {% endblock %}

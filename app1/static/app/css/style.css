@@ -1,5 +1,3 @@
-
-
 body {
     background-color:#EDF2F7;
     font-family: 'Roboto', sans-serif;
@@ -8,52 +6,11 @@ body {
 label.error {
     color: darkred;
 }
-
-.galeria {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 30px;
+#formulario_contacto {
+    width: 300px;
+    margin-top:50px;
 }
 
-.galeria img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-}
-/*CONTENIDO PRINCIPAL*/
-
-#contenido {
-    width: 80%;
-    margin:auto;
-    max-width: 1280px;
-    min-height: 100vh;
-}
-.productos {
-    display: flex;
-    flex-wrap: wrap;
-}
-.producto {
-    width: 25%;
-    margin-top: 20px;
-}
-.producto img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-}
-.producto .detalle {
-    padding: 5px;
-}
-.producto .contenedor_producto {
-    background-color: white;
-    width: 80%;
-    margin: auto;
-}
-/* main */
-.main-container {
-    width: 100%;
-    height: 45vh;
-}
 /* footer */
 .footer-container {
     width: 100%;
