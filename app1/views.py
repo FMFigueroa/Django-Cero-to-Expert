@@ -53,3 +53,11 @@ def agregar_producto(request):
             data["form"] = formulario
 
     return render(request, 'producto/agregar.html', data)
+
+#=====================================================================
+def listar_productos(request):
+    productos = Producto.objects.all()
+    data = {
+        'productos': productos
+    }
+    return render(request, 'producto/listar.html', data)
