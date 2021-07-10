@@ -4,7 +4,42 @@ colocar el path que deseamos ver a partir de templates.  -->
 {%  load static%}
 
 {% block contenido %}
-<div class="main-container">
-    <h1>Esta es la página de los productos</h1>
+<div class="row">
+    <h2>Productos</h2>
 </div>
+<div class="row">
+    <div class="col">
+    <!-- Offcanvas -->
+        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">Control de Productos</button>
+
+        <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Panel de Conrol de Productos</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div>
+                Desde aquí puedes Crear, Editar y Eliminar Productos.
+                <br>
+                Selecciona una Opción:
+            </div>
+            <div class="dropdown mt-3">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown">
+                Opciones de Productos
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <li><a class="dropdown-item" href="{% url 'agregar_producto' %}">Crear un Producto</a></li>
+                <li><a class="dropdown-item" href="{% url 'listar_productos' %}">Listar todos los Productos</a></li>
+                </ul>
+            </div>
+        </div>
+        </div>
+    </div>
+    <div class="col">
+        <h2>
+            Seccion de cards
+        </h2>
+    </div>
+</div>
+
 {% endblock %}

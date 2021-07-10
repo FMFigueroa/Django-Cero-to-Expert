@@ -1,5 +1,26 @@
 {% extends 'app/base.html' %}
 
+{% block msj_delete %}
+<script>
+    function eliminarProducto(id) {
+        Swal.fire({
+        title: '¿Estas Seguro?',
+        text: "Tu no puedes deshacer esta acción..!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si, Eliminar..!'
+        })
+        .then(function(result) {
+            if (result.isConfirmed) {
+                window.location.href = "/eliminar-producto/"+id+"/"
+            }
+        })
+    }
+</script>
+{% endblock %}
+
 {% block contenido %}
 {% load humanize %}
 <div class="row">
@@ -16,8 +37,9 @@
                             <th>Category</th>
                             <th>Precio</th>
                             <th>Disponible</th>
+                            <th>Opciones</th>
                         </tr>
-                        {% for p in productos %}
+                        {% for p in entity %}
                         <tr>
                             <td>{{p.nombre | title}}</td>
                             <td>{{p.category | capfirst}}</td>
@@ -29,11 +51,20 @@
                                     No
                                 {% endif %}
                             </td>
-                        </tr>
+                            <td>
+                                <a href="{% url 'modificar_producto' p.id %}" class= "btn btn-warning btn-sm">Editar</a>
+                                <a href="#" onclick="eliminarProducto({{ p.id }})" class="btn btn-danger btn-sm">Eliminar</a>
+                            </td>
                         {% endfor %}
                     </table>
+                    <div>
+                        {% include 'app/paginator.html' %}
+                    </div>
                 </div>
-
+                <br>
+                <div class="d-flex justify-content-center">
+                    <a class="btn btn-primary btn-sm" href="{% url 'agregar_producto' %}">Crear un Producto</a>
+                </div>
             </div>
         </div>
     </div>

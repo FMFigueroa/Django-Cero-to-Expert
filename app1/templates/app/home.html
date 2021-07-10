@@ -100,7 +100,7 @@ colocar el path que deseamos ver a partir de templates.  -->
     {% if p.disponible == True %}
     <div class="card mx-2 pt-2" style="width: 20rem;">
       {% if p.imagen %}
-      <img src="{{ p.imagen.url}}" class="card-img-top" alt="imagen producto">
+      <img src="{{ p.imagen.url}}" class="card-img-top" alt="imagen del producto">
       {% endif %}
       <div class="card-body">
         <h5 style="color: rgb(29, 104, 202);">{{ p.category | capfirst }}</h5>
@@ -115,5 +115,4 @@ colocar el path que deseamos ver a partir de templates.  -->
     {% endif %}
 {% endfor %}
 </div>
-
 {% endblock %}
