@@ -12,7 +12,7 @@
                 <hr>
                 <form action="" method="post" enctype="multipart/form-data">
                     {% csrf_token %}
-                    {{ form2 | crispy}} <!-- Variable creada en views con python, django la impre en html directamente -->
+                    {{ form | crispy}} <!-- Variable creada en views con python, django la impre en html directamente -->
                     <hr>
                     <br>
                     <div class="d-flex justify-content-end">

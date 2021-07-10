@@ -31,120 +31,49 @@
             <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="{% url 'home'%}">Home</a>
-                <li class="nav-item">
-                <a class="nav-link" href="{% url 'products'%}">Productos</a>
-                </li>
-                <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Gallery
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="{% url 'projects'%}">Projects</a></li>
-                    <li><a class="dropdown-item" href="{% url 'courses'%}">Courses</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="{% url 'blog'%}">Blog</a></li>
-                </ul>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" href="{% url 'contacts'%}" tabindex="-1" aria-disabled="true">Contact</a>
-                </li>
-            </ul>
-            <form class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
-            <div class="navbar-nav me-2 mb-2 mb-lg-0">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'home'%}">Home</a>
+                    <li class="nav-item">
+                    <a class="nav-link" href="{% url 'products'%}">Productos</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Gallery
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="{% url 'projects'%}">Projects</a></li>
+                        <li><a class="dropdown-item" href="{% url 'courses'%}">Courses</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="{% url 'blog'%}">Blog</a></li>
+                    </ul>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="{% url 'contacts'%}" tabindex="-1" aria-disabled="true">Contact</a>
+                    </li>
+                </ul>
+                <form class="d-flex mx-5">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+                <ul class="navbar-nav">
                 {% if user.is_authenticated %}
-                    <li class="nav-item mx-3">
-                        <a class="btn btn-link" href="{% url 'logout' %}" role="button">Logout</a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" role="button">Hola, {{ user.username }} !</a>
+                    </li>                
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'logout' %}" role="button">Logout</a>
                     </li>
                 {% else %}
-                    <li class="nav-item mx-3">
-                        <!-- Modal para Login -->
-                        <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                        Login
-                        </button>
-                         <!-- Modal -->
-                        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="staticBackdropLabel">Login</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body"> <!-- Body Modal -->
-                                        <form class="row g-3">
-                                        <div class="col-md-12">
-                                            <label for="inputEmail4" class="form-label">Email</label>
-                                            <input type="email" class="form-control" id="inputEmail4">
-                                        </div>
-                                        <div class="col-md-12">
-                                            <label for="inputPassword4" class="form-label">Password</label>
-                                            <input type="password" class="form-control" id="inputPassword4">
-                                        </div>
-                                        </form>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                        <button type="button" class="btn btn-primary">Login</button>
-                                    </div>
-                                </div>
-                            </div>
-                        
-                        </div>
-                        <!-- Modal para register -->
-                        <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        Register
-                        </button>
-                        <!-- Modal -->
-                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div id="modal_2" class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">User Register</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body"> <!-- Body Modal -->
-                                    <form class="row g-3">
-                                    <div class="col-md-6">
-                                        <label for="inputFname" class="form-label">First Name</label>
-                                        <input type="text" class="form-control" id="inputFname">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label for="inputLname" class="form-label">Last Name</label>
-                                        <input type="text" class="form-control" id="inputLname">
-                                    </div>
-                                    <div class="col-md-12">
-                                        <label for="inputEmail4" class="form-label">Email</label>
-                                        <input type="email" class="form-control" id="inputEmail4">
-                                    </div>
-                                    <div class="col-md-12">
-                                        <label for="inputPassword4" class="form-label">Password</label>
-                                        <input type="password" class="form-control" id="inputPassword4">
-                                    </div>
-                                    <div class="col-md-12">
-                                        <label for="inputPassword8" class="form-label">Password Confirm</label>
-                                        <input type="password" class="form-control" id="inputPassword8">
-                                    </div>
-                                    </form>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                        <button type="button" class="btn btn-primary">Register</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
+                    <li class="nav-item">
+                        <!-- Button para Login -->
+                        <a href="{% url 'login' %}" class="nav-link mx-2">Login</a>
+                    </li>   
+                    <li class="nav-item">
+                        <a href="{% url 'registro' %}" class="btn btn-primary">Register</a>
+                    </li> 
                 {% endif %}
                 </ul>
-            </div>
             </div>
         </div>
     </nav> 
