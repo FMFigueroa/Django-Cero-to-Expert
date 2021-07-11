@@ -21,8 +21,6 @@ class ProductoForm(forms.ModelForm):
         }
 
 
-
-
 class CustomUserCreationForm(UserCreationForm):
     class Meta:
         model = User

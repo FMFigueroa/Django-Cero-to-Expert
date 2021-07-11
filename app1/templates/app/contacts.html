@@ -18,7 +18,7 @@ colocar el path que deseamos ver a partir de templates.  -->
                     {{ form | crispy}} <!-- Variable creada en views con python, django la impre en html directamente -->
                     <hr>
                     <br>
-                    <div class="d-flex justify-content-end">
+                    <div class="d-flex justify-content-between">
                         <a href="{% url 'home' %}" class="btn btn-secondary">Cancelar</a>
                         &nbsp;
                         <button class="btn btn-primary" type="submit" value="Submit">Enviar</button>

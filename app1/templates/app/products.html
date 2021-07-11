@@ -8,6 +8,8 @@ colocar el path que deseamos ver a partir de templates.  -->
     <h2>Productos</h2>
 </div>
 <div class="row">
+    
+{% if perms.app1.view_producto %}
     <div class="col">
     <!-- Offcanvas -->
         <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">Control de Productos</button>
@@ -28,13 +30,18 @@ colocar el path que deseamos ver a partir de templates.  -->
                 Opciones de Productos
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                {% if perms.app1.add_producto %}
                 <li><a class="dropdown-item" href="{% url 'agregar_producto' %}">Crear un Producto</a></li>
+                {% endif %}
+                {% if perms.app1.view_producto %}
                 <li><a class="dropdown-item" href="{% url 'listar_productos' %}">Listar todos los Productos</a></li>
+                {% endif %}
                 </ul>
             </div>
         </div>
         </div>
     </div>
+    {% endif %}
     <div class="col">
         <h2>
             Seccion de cards
