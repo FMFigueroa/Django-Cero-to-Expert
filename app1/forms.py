@@ -2,6 +2,9 @@ from django import forms
 from .models import Contacto, Producto
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+from .validators import MaxSizeFileValidator
+from django.forms import ValidationError
+
 
 class ContactoForm(forms.ModelForm):
     
@@ -12,7 +15,20 @@ class ContactoForm(forms.ModelForm):
 
 
 class ProductoForm(forms.ModelForm):
-    
+    #========== Validaciones Integradas ==========================================================
+    nombre = forms.CharField(min_length=3, max_length=50)
+    imagen = forms.ImageField(required=False, validators=[MaxSizeFileValidator(max_file_size=2)])
+    precio = forms.IntegerField(min_value=1, max_value=100000)
+    #==============================================================================================
+
+    def clean_nombre(self):
+        nombre = self.cleaned_data["nombre"]
+        existe = Producto.objects.filter(nombre__iexact=nombre).exists()
+
+        if existe:
+            raise forms.ValidationError("Este nombre ya existe")
+        return nombre
+
     class Meta:
         model = Producto
         fields = '__all__'
@@ -20,7 +36,7 @@ class ProductoForm(forms.ModelForm):
             "fecha_fabricacion": forms.SelectDateWidget() # mejorar con plugin de javascripts.
         }
 
-
+#=============================================================================================
 class CustomUserCreationForm(UserCreationForm):
     class Meta:
         model = User

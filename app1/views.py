@@ -47,7 +47,7 @@ def contacts(request):
     return render(request, 'app/contacts.html', data)
 #==================== Productos ==================================
 #==================================================================
-@permission_required('app.add_producto')
+@permission_required('app1.add_producto')
 def agregar_producto(request):
     data = {
         'form': ProductoForm() # Variable que se imprime en la platilla html.
@@ -64,7 +64,7 @@ def agregar_producto(request):
 
     return render(request, 'producto/agregar.html', data)
 #=====================================================================
-@login_required
+@permission_required('app1.view_producto')
 def listar_productos(request):
     productos = Producto.objects.all()
     #=======================  Paginator  ============================
@@ -81,7 +81,7 @@ def listar_productos(request):
     }
     return render(request, 'producto/listar.html', data)
 #====================================================================
-@permission_required('app.change_producto')
+@permission_required('app1.change_producto')
 def modificar_producto(request, id):
     producto = get_object_or_404(Producto, id=id)
     
@@ -99,7 +99,7 @@ def modificar_producto(request, id):
     
     return render(request, 'producto/modificar.html', data)
 #====================================================================
-@permission_required('app.delete_producto')
+@permission_required('app1.delete_producto')
 def eliminar_producto(request, id):
     producto = get_object_or_404(Producto, id=id)
     producto.delete()

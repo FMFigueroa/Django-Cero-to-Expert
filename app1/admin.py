@@ -1,11 +1,13 @@
 from django.contrib import admin
 from .models import Category , Producto , Contacto
+from .forms import ProductoForm
 
 class ProductoAdmin(admin.ModelAdmin):
     list_display = ("nombre", "category", "precio", "disponible")
     list_editable = ("precio",)
     search_fields = ("nombre",)
     list_filter = ("category","disponible")
+    form = ProductoForm
     #list_per_page = 1
     def change_category_to_default(self,request,queryset):
         queryset.update(category="default")

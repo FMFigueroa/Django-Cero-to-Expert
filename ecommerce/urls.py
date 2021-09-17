@@ -23,6 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('app1.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
+    path('social-auth/', include('social_django.urls', namespace="social")),
 ]
 
 # Solo se usa en desarrollo o debug, cuando va a production montar la imagnes en un NGINETS.
